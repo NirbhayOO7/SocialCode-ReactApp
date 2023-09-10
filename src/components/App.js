@@ -3,10 +3,12 @@ import { getPosts } from '../api';
 import { Home, Login } from '../pages';
 import { Loader, Navbar } from './';
 import { Route, Routes } from 'react-router-dom';
+// import { Test } from './test';
 
 function App() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  console.log("App");
 
   useEffect(() => {
 
@@ -34,6 +36,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home posts={posts} />} />
         <Route path='/login' element={<Login />} />
+        {/* <Route path='/test' element={<Test />} /> */}
       </Routes>
     </div>
   );

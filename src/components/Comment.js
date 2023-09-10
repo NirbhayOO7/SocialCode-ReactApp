@@ -20,7 +20,7 @@ const Comment = ({ comment }) => {
 }
 
 Comment.propTypes = {
-    posts: PropTypes.object,
+    comment: PropTypes.object.isRequired,
 };
 
 export default Comment;

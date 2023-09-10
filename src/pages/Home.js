@@ -4,7 +4,8 @@ import { Comment } from '../components'
 
 
 const Home = ({ posts }) => {   //object destructuring is used here: const {post} = props;
-    console.log(posts);
+    // console.log(posts);
+    console.log("Home");
     return (
         <div className={styles.postsList} >
             {
