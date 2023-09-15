@@ -1,12 +1,12 @@
-import { API_URLS, LOCALSTORAGE_TOKEN_KEY } from '../utils'
+import { API_URLS, LOCALSTORAGE_TOKEN_KEY, getFormBody } from '../utils'
 
 const customFetch = async (url, { body, ...customConfig }) => {
     const token = window.localStorage.getItem(LOCALSTORAGE_TOKEN_KEY);
 
+    // below lines defines the content type of data we are going to send in fetch call, which will be form url encoded data.
     const headers = {
-        'content-type': 'application/json',
-        Accept: 'application/json'
-    }
+        'content-type': 'application/x-www-form-urlencoded',
+    };
 
     if (token) {
         headers.Authorization = `Bearer ${token}`;
@@ -20,8 +20,10 @@ const customFetch = async (url, { body, ...customConfig }) => {
         },
     }
 
+    // in below were are converting the simple email and password or any other data sent any component which is making the customFetch 
+    // call (for example login component is making login call) to encoded form by using getFormBody function.
     if (body) {
-        config.body = JSON.stringify(body);
+        config.body = getFormBody(body);
     }
 
     try {
@@ -56,4 +58,11 @@ export const login = (email, password) => {
         method: "POST",
         body: { email, password }
     })
+}
+
+export const register = (name, email, password, confirmPassword) => {
+    return customFetch(API_URLS.signup(), {
+        method: "POST",
+        body: { name, email, password, confirm_password: confirmPassword }
+    });
 }
