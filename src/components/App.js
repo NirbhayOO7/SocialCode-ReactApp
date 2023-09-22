@@ -1,4 +1,4 @@
-import { Home, Login, SignUp } from '../pages';
+import { Home, Login, Settings, SignUp } from '../pages';
 import { Loader, Navbar } from './';
 import { Route, Routes } from 'react-router-dom';
 import { useAuth } from '../hooks';
@@ -20,6 +20,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<SignUp />} />
+        <Route path='/settings' element={<Settings />} />
         {/* <Route path='/test' element={<Test />} /> */}
       </Routes>
     </div>
