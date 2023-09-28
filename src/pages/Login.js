@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "../styles/login.module.css"
 import { toast } from 'react-toastify';
 import { useAuth } from "../hooks";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 
 const Login = () => {
 
@@ -34,6 +34,9 @@ const Login = () => {
         }
     }
 
+    if (auth.user) {
+        return <Navigate to='/' />
+    }
 
     return (
         <form className={styles.loginForm} onSubmit={handleSubmit}>
@@ -44,7 +47,8 @@ const Login = () => {
                     name="Email"
                     value={email}
                     onChange={(e) => { setEmail(e.target.value) }}
-                    autoComplete="new-password"
+                    autoComplete="nope"
+                    placeholder="Email"
                 />
             </div>
 
@@ -52,6 +56,7 @@ const Login = () => {
                 <input
                     type="password"
                     name="Password"
+                    placeholder="Password"
                     value={password}
                     onChange={(e) => { setPassword(e.target.value) }}
                 />

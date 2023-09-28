@@ -1,6 +1,6 @@
 import { Home, Login, Settings, SignUp } from '../pages';
 import { Loader, Navbar } from './';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { useAuth } from '../hooks';
 
 // import { Test } from './test';
@@ -13,6 +13,13 @@ function App() {
     return <Loader />
   }
 
+  function PrivateRoute({ children }) { //content destructuring is being used here, like insted of writing PrivateRoute(props) then
+    //inside function we case use props.children we are destructuring the props object directly in function decleration
+    const auth = useAuth();
+
+    return (auth.user ? children : <Navigate to='/login' />);
+  }
+
   return (
     <div className="App">
       <Navbar />
@@ -20,7 +27,12 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<SignUp />} />
-        <Route path='/settings' element={<Settings />} />
+        <Route path='/settings'
+          element={
+            <PrivateRoute>
+              <Settings />
+            </PrivateRoute>
+          } />
         {/* <Route path='/test' element={<Test />} /> */}
       </Routes>
     </div>

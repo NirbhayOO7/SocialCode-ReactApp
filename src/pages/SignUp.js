@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import styles from '../styles/login.module.css';
 import { useAuth } from '../hooks'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 
 const SingUp = () => {
     const [name, setName] = useState('');
@@ -46,6 +46,10 @@ const SingUp = () => {
         // }
     }
 
+    if (auth.user) {
+        return <Navigate to='/' />
+    }
+
     return (
         <form className={styles.loginForm} onSubmit={handleSubmit}>
             <span className={styles.loginSignupHeader}>Register</span>
@@ -53,9 +57,10 @@ const SingUp = () => {
                 <input
                     type="text"
                     name="Name"
+                    placeholder="Name"
                     value={name}
                     onChange={(e) => { setName(e.target.value) }}
-                    autoComplete="new-password"
+                    autoComplete="nope"
                 />
             </div>
 
@@ -63,15 +68,17 @@ const SingUp = () => {
                 <input
                     type="email"
                     name="Email"
+                    placeholder="Email"
                     value={email}
                     onChange={(e) => { setEmail(e.target.value) }}
-                    autoComplete="new-password"
+                    autoComplete="nope"
                 />
             </div>
 
             <div className={styles.field}>
                 <input
                     type="password"
+                    placeholder="Password"
                     value={password}
                     onChange={(e) => { setPassword(e.target.value) }}
                 />
@@ -80,6 +87,7 @@ const SingUp = () => {
                 <input
                     type="password"
                     name="confirmPassword"
+                    placeholder="Confirm Password"
                     value={confirmPassword}
                     onChange={(e) => { setConfirmPassword(e.target.value) }}
                 />
