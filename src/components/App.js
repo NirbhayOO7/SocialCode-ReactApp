@@ -2,12 +2,14 @@ import { Home, Login, Settings, SignUp } from '../pages';
 import { Loader, Navbar } from './';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useAuth } from '../hooks';
+import UserPrfoile from '../pages/UserProfile';
 
 // import { Test } from './test';
 
 function App() {
 
   const auth = useAuth();
+  console.log('auth', auth);
 
   if (auth.loading) {
     return <Loader />
@@ -32,7 +34,15 @@ function App() {
             <PrivateRoute>
               <Settings />
             </PrivateRoute>
-          } />
+          }
+        />
+        <Route path='/user/:userId'
+          element={
+            <PrivateRoute>
+              <UserPrfoile />
+            </PrivateRoute>
+          }
+        />
         {/* <Route path='/test' element={<Test />} /> */}
       </Routes>
     </div>

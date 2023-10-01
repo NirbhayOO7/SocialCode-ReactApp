@@ -11,6 +11,8 @@ const Settings = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [savingForm, setSavingForm] = useState(false);
 
+    // console.log(auth);
+
     const clearForm = () => {
         setPassword("");
         setConfirmPassword("");
@@ -49,10 +51,6 @@ const Settings = () => {
             setSavingForm(false);
         }
     };
-
-    // if (!auth.user) {
-    //     return <Navigate to='/' />;
-    // }
 
     return (
         <div className={styles.settings}>

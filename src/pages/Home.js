@@ -4,6 +4,7 @@ import { Comment } from '../components'
 import { useEffect, useState } from 'react';
 import { Loader } from '../components';
 import { getPosts } from '../api';
+import { Link } from 'react-router-dom';
 
 const Home = () => {   //object destructuring is used here: const {post} = props(later on props removed and post weare getting in same component rather than sending it as props from parent);
 
@@ -43,7 +44,7 @@ const Home = () => {   //object destructuring is used here: const {post} = props
                                     alt="user-pic"
                                 />
                                 <div>
-                                    <span className={styles.postAuthor}>{post.user.name}</span>
+                                    <Link to={`/user/${post.user._id}`} className={styles.postAuthor}>{post.user.name}</Link>
                                     <span className={styles.postTime}>a minute ago</span>
                                 </div>
                             </div>
