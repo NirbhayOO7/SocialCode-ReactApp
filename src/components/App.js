@@ -43,6 +43,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path='*' element={<h1>Error 404! Page not Found!</h1>} />
         {/* <Route path='/test' element={<Test />} /> */}
       </Routes>
     </div>

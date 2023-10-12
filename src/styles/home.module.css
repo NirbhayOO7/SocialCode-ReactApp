@@ -31,6 +31,11 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 22px;
+    text-decoration: none;
+}
+
+.postAvatar .postAuthor:hover {
+    text-decoration: underline;
 }
 
 .postAvatar .postTime {
@@ -164,7 +169,6 @@
 }
 
 /* Styles added */
-
 .home {
     padding: 20px 50px;
     display: flex;
@@ -229,4 +233,52 @@
 
 .postsList {
     flex: 1;
+}
+
+/* Create Post */
+.createPost {
+    background: white;
+    border: 1px solid #e0e0e0;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.createPost>div {
+    padding: 10px;
+    border-top: 1px solid #d0d0d0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.createPost textarea {
+    height: 90px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 15px;
+    border: none;
+    resize: none;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.addPostBtn {
+    width: 112px;
+    height: 42px;
+    left: 111.5px;
+    top: 0px;
+    background: #ef7917;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+}
+
+.addPostBtn:focus,
+.createPost textarea:focus {
+    outline: none;
+}
+
+.addPostBtn:hover {
+    cursor: pointer;
 }

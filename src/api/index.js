@@ -97,3 +97,40 @@ export const removeFriend = (userId) => {
         method: 'POST',
     });
 }
+
+export const addPost = (content) => {
+    return customFetch(API_URLS.createPost(), {
+        method: 'POST',
+        body: {
+            content
+        }
+    });
+}
+
+export const createComment = (postId, content) => {
+    return customFetch(API_URLS.comment(), {
+        method: 'POST',
+        body: {
+            content,
+            post_id: postId
+        }
+    });
+}
+
+export const toggleLike = (itemId, itemType) => {
+    return customFetch(API_URLS.toggleLike(itemId, itemType), {
+        method: 'POST'
+    });
+}
+
+export const getLikeDetails = (itemId, itemType) => {
+    return customFetch(API_URLS.getLikes(itemId, itemType), {
+        method: 'GET'
+    });
+}
+
+export const searchUsers = (searchText) => {
+    return customFetch(API_URLS.searchUsers(searchText), {
+        method: 'GET'
+    });
+}
