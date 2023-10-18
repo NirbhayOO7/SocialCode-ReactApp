@@ -18,7 +18,7 @@ This is a social messaging web application built using React that allows users t
 
 - **React**: Front-end framework for building user interfaces.
 - **[External API Provider]**: External API provider for messaging and question data.
-- **[Other Libraries/Technologies]**:
+- **[Other Libraries/Technologies]**: React, React-router-dom, React-dom, React-scripts, React-toastify, prop-tpes, jwt-decode.
 
 ## Getting Started
 
@@ -37,15 +37,15 @@ Before you begin, ensure you have met the following requirements:
    git clone https://github.com/your-username/quora-like-messaging-app.git
 
 2. Change into the project directory:
-
+    ```bash
     cd socialcode-react-app
 
 3. Install dependencies:
-
+    ```bash
     npm install
 
 4. Start the development server:
-
+    ```bash
     npm start
 
 5. Open your web browser and navigate to http://localhost:3000 to access the app.
